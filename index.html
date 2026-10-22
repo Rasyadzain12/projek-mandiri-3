@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Rasyad Zain — Layout & Portfolio</title>
+
+
+
+    <style>
+        :root {
+            --bg-page: #F6F6F4;
+            --surface: #FFFFFF;
+            --surface-hover: #FAFAF9;
+            --surface-muted: #F1EFEA;
+
+            --text-heading: #191919;
+            --text-body: #4A4A48;
+            --text-muted: #7E7C77;
+
+            --accent-maroon: #6B1D26;
+            --accent-maroon-hover: #52141C;
+            --accent-maroon-light: #F7EFF0;
+
+            --border: #E5E3DC;
+            --border-subtle: #ECEAE4;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+
+            --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+            --transition: all 0.2s ease;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.65;
+            padding: 48px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-card);
+            padding: 40px 48px;
+        }
+
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .top-nav .nav-title {
+            font-weight: 600;
+            color: var(--accent-maroon);
+            letter-spacing: 0.02em;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 180px 1fr 200px;
+            gap: 32px;
+            align-items: start;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+
+        .avatar-wrap {
+            width: 180px;
+            height: 200px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--surface-muted);
+            border: 1px solid var(--border);
+        }
+
+        .avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        .profile-content h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .profile-role {
+            font-size: 0.95rem;
+            color: var(--accent-maroon);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .profile-meta {
+            font-size: 0.875rem;
+            color: var(--text-body);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .meta-row .label {
+            color: var(--text-muted);
+            min-width: 85px;
+            font-weight: 500;
+        }
+
+        .meta-row a {
+            color: var(--text-heading);
+            text-decoration: underline;
+            text-decoration-color: var(--border);
+            text-underline-offset: 3px;
+            transition: var(--transition);
+        }
+
+        .meta-row a:hover {
+            color: var(--accent-maroon);
+            text-decoration-color: var(--accent-maroon);
+        }
+
+
+        .categories-box {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+        }
+
+        .categories-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-maroon);
+            margin-bottom: 12px;
+        }
+
+        .categories-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .categories-list li {
+            font-size: 0.825rem;
+            color: var(--text-heading);
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+        }
+
+
+        .about-section {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 14px;
+        }
+
+        .about-text {
+            font-size: 0.925rem;
+            color: var(--text-body);
+            line-height: 1.75;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+
+        .columns-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            padding-top: 32px;
+        }
+
+        .panel {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .panel-heading {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 8px;
+        }
+
+
+        .video-container {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            aspect-ratio: 9 / 16;
+            background: #000000;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .video-container iframe,
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            object-fit: cover;
+        }
+
+        .panel-caption {
+            font-size: 0.775rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+
+        .gallery-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .gallery-box {
+            aspect-ratio: 1 / 1;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .gallery-box:hover {
+            border-color: var(--accent-maroon);
+            color: var(--accent-maroon);
+            background: #FFFFFF;
+        }
+
+
+        .assignment-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .assignment-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--text-heading);
+            font-size: 0.825rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .assignment-link:hover {
+            border-color: var(--accent-maroon);
+            color: var(--accent-maroon);
+            background: #FFFFFF;
+        }
+
+        .assignment-tag {
+            font-size: 0.725rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+
+        .page-footer {
+            margin-top: 32px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.775rem;
+            color: var(--text-muted);
+        }
+
+
+        @media (max-width: 860px) {
+            .container {
+                padding: 28px 24px;
+            }
+
+            .profile-section {
+                grid-template-columns: 140px 1fr;
+            }
+
+            .categories-box {
+                grid-column: span 2;
+                width: 100%;
+            }
+
+            .columns-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 580px) {
+            body {
+                padding: 16px 10px;
+            }
+
+            .profile-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .avatar-wrap {
+                margin: 0 auto;
+            }
+
+            .profile-meta {
+                align-items: center;
+            }
+
+            .meta-row {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .meta-row .label {
+                min-width: unset;
+            }
+
+            .categories-box {
+                grid-column: 1;
+            }
+
+            .page-footer {
+                flex-direction: column;
+                gap: 6px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+
+        <header class="top-nav">
+            <span class="nav-title">Praktikum 03 &bull; Desain Pemrograman Web</span>
+            <span>STT Terpadu Nurul Fikri</span>
+        </header>
+
+
+        <section class="profile-section">
+
+            <div class="avatar-wrap">
+                <img src="reference-avatar.jpg" alt="Foto Profil Muhammad Rasyad Zain">
+            </div>
+
+
+            <div class="profile-content">
+                <h1>Muhammad Rasyad Zain</h1>
+                <p class="profile-role">Mahasiswa Teknik Informatika &bull; UI/UX Design</p>
+
+                <div class="profile-meta">
+                    <div class="meta-row">
+                        <span class="label">Alamat:</span>
+                        <span>kampung areman rt07 rw10</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="label">Email:</span>
+                        <a href="mailto:rasyadzain1712@gmail.com">rasyadzain1712@gmail.com</a>
+                    </div>
+                    <div class="meta-row">
+                        <span class="label">Telepon:</span>
+                        <span>0812 1282 0339</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <aside class="categories-box" aria-label="Kategori">
+                <h2 class="categories-title">Categories</h2>
+                <ul class="categories-list">
+                    <li>Mahasiswa</li>
+                    <li>Teknik Informatika</li>
+                    <li>STT NURUL FIKRI</li>
+                    <li>Design UI/UX</li>
+                </ul>
+            </aside>
+        </section>
+
+
+        <article class="about-section">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-text">
+                <p>
+                    Saya adalah mahasiswa program studi Teknik Informatika di STT Terpadu Nurul Fikri dengan
+                    ketertarikan
+                    pada bidang desain antarmuka pengguna (UI/UX) dan pengembangan web front-end.
+                </p>
+                <p>
+                    Fokus saya adalah menciptakan pengalaman digital yang sederhana, fungsional, dan nyaman digunakan
+                    melalui penerapan tata letak terstruktur, tipografi yang proporsional, serta estetika visual yang
+                    tenang.
+                    Halaman ini dibuat sebagai pemenuhan tugas praktikum tata letak halaman web.
+                </p>
+            </div>
+        </article>
+
+
+        <footer class="columns-grid">
+
+
+            <section class="panel" aria-label="Video">
+                <h3 class="panel-heading">Video Dokumentasi</h3>
+                <div class="video-container">
+                    <video controls preload="metadata">
+                        <source src="video.mp4" type="video/mp4">
+
+                    </video>
+                </div>
+                <p class="panel-caption">(<code>video.mp4</code>).</p>
+            </section>
+
+
+            <section class="panel" aria-label="Galeri Foto">
+                <h3 class="panel-heading">Galeri Foto</h3>
+                <div class="gallery-wrap">
+                    <div class="gallery-box">[Foto 1]</div>
+                    <div class="gallery-box">[Foto 2]</div>
+                    <div class="gallery-box">[Foto 3]</div>
+                    <div class="gallery-box">[Foto 4]</div>
+                </div>
+                <p class="panel-caption">Dokumentasi kegiatan dan portofolio foto.</p>
+            </section>
+
+
+            <section class="panel" aria-label="Daftar Praktikum">
+                <h3 class="panel-heading">Daftar Praktikum</h3>
+                <ul class="assignment-list">
+                    <li>
+                        <a href="projek_sal/index.html" target="_blank" rel="noopener noreferrer"
+                            class="assignment-link">
+                            <span>Praktikum 1</span>
+                            <span class="assignment-tag">Modul 01 &rarr;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="prjek_pizza_kelom/index.html" target="_blank" rel="noopener noreferrer"
+                            class="assignment-link">
+                            <span>Praktikum 2</span>
+                            <span class="assignment-tag">Modul 02 &rarr;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="praktikum%203/index.html" target="_blank" rel="noopener noreferrer"
+                            class="assignment-link">
+                            <span>Praktikum 3</span>
+                            <span class="assignment-tag">Modul 03 &rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="panel-caption">Tautan tugas praktikum mandiri sebelumnya.</p>
+            </section>
+
+        </footer>
+
+
+        <div class="page-footer">
+            <span>&copy; 2026 Muhammad Rasyad Zain</span>
+            <span>Teknik Informatika &bull; STT Terpadu Nurul Fikri</span>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
